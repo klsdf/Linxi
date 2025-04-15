@@ -1,0 +1,75 @@
+[gd_scene load_steps=12 format=3 uid="uid://ds8smya0j3n4n"]
+
+[ext_resource type="Script" uid="uid://dxuewb11hubri" path="res://Scripts/main.gd" id="1_xv2tf"]
+[ext_resource type="Texture2D" uid="uid://c726iq4njwpfx" path="res://Sprites/d51ad328-620a-4502-9386-567502dc0e04_1744035475654914328_origin~tplv-a9rns2rl98-image-dark-watermark.png" id="2_hem2v"]
+[ext_resource type="Script" uid="uid://dhue4loknk2lq" path="res://Scripts/move.gd" id="4_mk1vn"]
+[ext_resource type="PackedScene" uid="uid://wfl6vu6v5ac0" path="res://Scenes/子弹.tscn" id="5_3wwn8"]
+[ext_resource type="Texture2D" uid="uid://bnjld3aiy1fi0" path="res://Sprites/映月立绘-哭泣.png" id="6_shlk3"]
+[ext_resource type="Script" uid="uid://2nd6jpdmo1jo" path="res://箱子.gd" id="7_7llyr"]
+[ext_resource type="Texture2D" uid="uid://ek6k5m2lol43" path="res://icon.svg" id="8_08qqq"]
+[ext_resource type="Script" uid="uid://dfpwpesw12opo" path="res://Scripts/timer.gd" id="9_hem2v"]
+[ext_resource type="Script" uid="uid://b0itr4pus80lc" path="res://Scripts/UIController.gd" id="10_axcol"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bss38"]
+radius = 97.13
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bss38"]
+size = Vector2(151.5, 159.5)
+
+[node name="Node" type="Node" groups=["子弹"]]
+script = ExtResource("1_xv2tf")
+
+[node name="背景" type="Sprite2D" parent="."]
+position = Vector2(912, 552)
+texture = ExtResource("2_hem2v")
+
+[node name="玩家" type="Area2D" parent="背景"]
+position = Vector2(-722, -160)
+script = ExtResource("4_mk1vn")
+bullet_scene = ExtResource("5_3wwn8")
+
+[node name="玩家图像" type="Sprite2D" parent="背景/玩家"]
+scale = Vector2(0.24878, 0.24878)
+texture = ExtResource("6_shlk3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="背景/玩家"]
+shape = SubResource("CircleShape2D_bss38")
+
+[node name="Camera2D" type="Camera2D" parent="背景/玩家"]
+
+[node name="箱子" type="Area2D" parent="背景"]
+script = ExtResource("7_7llyr")
+
+[node name="Sprite2D" type="Sprite2D" parent="背景/箱子"]
+position = Vector2(0, 1)
+texture = ExtResource("8_08qqq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="背景/箱子"]
+position = Vector2(1, 5)
+shape = SubResource("RectangleShape2D_bss38")
+
+[node name="Timer" type="Timer" parent="背景"]
+wait_time = 5.0
+script = ExtResource("9_hem2v")
+
+[node name="UIController" type="Node" parent="."]
+script = ExtResource("10_axcol")
+
+[node name="Label" type="Label" parent="UIController"]
+offset_left = 510.0
+offset_top = 273.0
+offset_right = 894.0
+offset_bottom = 369.0
+horizontal_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="UIController"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -380.0
+offset_bottom = 73.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[connection signal="area_entered" from="背景/箱子" to="背景/玩家" method="_on_箱子_area_entered"]
