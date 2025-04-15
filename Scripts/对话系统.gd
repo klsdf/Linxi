@@ -29,10 +29,13 @@ var 当前索引: int = 0
 # 角色名字标签节点
 @export var 角色名字标签: Label
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	# 显示初始对话
-	显示对话()
+# 对话结束信号
+signal 对话结束
+
+# # Called when the node enters the scene tree for the first time.
+# func _ready() -> void:
+# 	# 显示初始对话
+# 	显示对话()
 
 # 显示当前对话
 func 显示对话() -> void:
@@ -43,6 +46,8 @@ func 显示对话() -> void:
 	else:
 		文本标签.text = "对话结束。"
 		角色名字标签.text = ""
+		# 发出对话结束信号
+		emit_signal("对话结束")
 
 # 处理输入事件
 func _input(event: InputEvent) -> void:

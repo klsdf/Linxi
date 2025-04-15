@@ -14,10 +14,6 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 5.0
-offset_top = 7.0
-offset_right = 5.0
-offset_bottom = 7.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_15w8b")
@@ -72,7 +68,5 @@ text = "123123123123123
 label_settings = SubResource("LabelSettings_tp1wc")
 autowrap_mode = 2
 max_lines_visible = 4
-visible_characters = 0
-visible_ratio = 0.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
