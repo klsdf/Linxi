@@ -8,7 +8,7 @@ class 对话:
 	var 角色名字: String
 
 	# 构造函数
-	func _init(内容参数: String, 角色名字参数: String) -> void:
+	func _init(内容参数:String, 角色名字参数:String) -> void:
 		self.内容 = 内容参数
 		self.角色名字 = 角色名字参数
 
@@ -39,6 +39,8 @@ signal 对话结束
 
 # 显示当前对话
 func 显示对话() -> void:
+	$CanvasLayer.visible = true;
+	GameController.is_dialogue_active = true;
 	if 当前索引 < 对话内容.size():
 		var 当前对话 = 对话内容[当前索引]
 		文本标签.text = 当前对话.内容
@@ -47,7 +49,16 @@ func 显示对话() -> void:
 		文本标签.text = "对话结束。"
 		角色名字标签.text = ""
 		# 发出对话结束信号
+		关闭对话()
 		emit_signal("对话结束")
+
+
+func 关闭对话() -> void:
+	# print("关闭对话")
+	GameController.is_dialogue_active = false;
+	$CanvasLayer.visible = false;
+
+
 
 # 处理输入事件
 func _input(event: InputEvent) -> void:

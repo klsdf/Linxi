@@ -12,14 +12,15 @@ func _ready():
 func _process(delta):
 	# 子弹持续移动
 	position += speed * direction * delta
-#
-func _on_area_entered(area: Area2D):
-	print("检测到了："+area.name)
-	if area.name == "箱子":
+
+func _on_area_entered(area: Area2D):	
+	# 检查对象是否挂载了 Enemy.gd
+	if area.get_script() == preload("res://Scripts/Enemy.gd"):
 		area.queue_free()
-		# 从根节点获取 UIController
-		var ui_controller = get_tree().get_root().find_child("UIController", true, false)
-		ui_controller.show_ui("检测到了："+area.name)
+		self.queue_free()
+		print("击中了敌人！")
+
+		# 在这里添加击中敌人的逻辑
 	## 处理与其他 Area2D 的碰撞
 	#if area.is_in_group("enemies"):
 		## 对敌人造成伤害的逻辑

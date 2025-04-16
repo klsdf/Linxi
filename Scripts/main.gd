@@ -12,8 +12,11 @@ func _enter_tree():
 	test();
 
 func _ready() -> void:
-	# 初始化并创建对话系统
-	创建对话系统()
+	open_dialogue()
+
+
+func open_dialogue() -> void:
+	对话系统.显示对话();
 
 func 创建对话系统() -> void:
 	# 实例化对话系统

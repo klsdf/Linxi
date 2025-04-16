@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://e25688oks48d"]
+
+[ext_resource type="Script" uid="uid://dhue4loknk2lq" path="res://Scripts/move.gd" id="1_asqla"]
+[ext_resource type="PackedScene" uid="uid://wfl6vu6v5ac0" path="res://Scenes/子弹.tscn" id="2_yqvhi"]
+[ext_resource type="Texture2D" uid="uid://bnjld3aiy1fi0" path="res://Sprites/映月立绘-哭泣.png" id="3_eaani"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bss38"]
+radius = 97.13
+
+[node name="玩家" type="Area2D"]
+script = ExtResource("1_asqla")
+bullet_scene = ExtResource("2_yqvhi")
+
+[node name="玩家图像" type="Sprite2D" parent="."]
+scale = Vector2(0.24878, 0.24878)
+texture = ExtResource("3_eaani")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_bss38")
+
+[node name="Camera2D" type="Camera2D" parent="."]

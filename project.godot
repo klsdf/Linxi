@@ -19,6 +19,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 Log="*res://Scripts/Log.gd"
+GameController="*res://Scripts/GameController.gd"
+"对话系统"="*res://Scenes/对话系统.tscn"
 
 [display]
 

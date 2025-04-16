@@ -1,11 +1,14 @@
 [gd_scene load_steps=5 format=3 uid="uid://cy2inkhq6mfm8"]
 
 [ext_resource type="Script" uid="uid://di4d7qodtuagm" path="res://Scripts/对话系统.gd" id="1_15w8b"]
-[ext_resource type="Theme" uid="uid://btuwwog630wat" path="res://new_theme.tres" id="1_e8smu"]
+[ext_resource type="Theme" uid="uid://du48mno5o3dml" path="res://new_theme.tres" id="1_e8smu"]
 [ext_resource type="Texture2D" uid="uid://c5p5pqafxd5nb" path="res://Sprites/efbc9b60-d931-4c45-8649-8cd1e2351330_1744643322425960112_origin~tplv-a9rns2rl98-image-dark-watermark.png" id="2_7sit8"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_tp1wc"]
 font_size = 33
+font_color = Color(0.562294, 0.837385, 0.966563, 1)
+outline_size = 3
+outline_color = Color(0.735464, 0, 0.293382, 1)
 
 [node name="对话系统" type="Control" node_paths=PackedStringArray("文本标签", "角色名字标签")]
 layout_mode = 3
