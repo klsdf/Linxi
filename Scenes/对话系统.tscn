@@ -1,13 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://cy2inkhq6mfm8"]
+[gd_scene load_steps=5 format=3 uid="uid://cy2inkhq6mfm8"]
 
 [ext_resource type="Script" uid="uid://di4d7qodtuagm" path="res://Scripts/对话系统.gd" id="1_15w8b"]
+[ext_resource type="Theme" uid="uid://btuwwog630wat" path="res://new_theme.tres" id="1_e8smu"]
 [ext_resource type="Texture2D" uid="uid://c5p5pqafxd5nb" path="res://Sprites/efbc9b60-d931-4c45-8649-8cd1e2351330_1744643322425960112_origin~tplv-a9rns2rl98-image-dark-watermark.png" id="2_7sit8"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_tp1wc"]
 font_size = 33
-font_color = Color(0.562294, 0.837385, 0.966563, 1)
-outline_size = 3
-outline_color = Color(0.735464, 0, 0.293382, 1)
 
 [node name="对话系统" type="Control" node_paths=PackedStringArray("文本标签", "角色名字标签")]
 layout_mode = 3
@@ -16,50 +14,69 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_e8smu")
 script = ExtResource("1_15w8b")
-"文本标签" = NodePath("文本区域/文本内容")
-"角色名字标签" = NodePath("名字区域/名字")
+"文本标签" = NodePath("CanvasLayer/文本区域/MarginContainer/文本内容")
+"角色名字标签" = NodePath("CanvasLayer/名字区域/名字")
 
-[node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 0
-offset_left = 5.0
-offset_top = -15.0
-offset_right = 398.0
-offset_bottom = 635.0
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -951.0
+offset_right = 668.0
+grow_vertical = 0
 texture = ExtResource("2_7sit8")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="名字区域" type="Panel" parent="."]
-layout_mode = 0
-offset_left = 347.0
-offset_top = 378.0
-offset_right = 583.0
-offset_bottom = 453.0
+[node name="名字区域" type="Panel" parent="CanvasLayer"]
+offset_left = 601.0
+offset_top = 715.0
+offset_right = 837.0
+offset_bottom = 790.0
+theme = ExtResource("1_e8smu")
+metadata/_edit_group_ = true
 
-[node name="名字" type="Label" parent="名字区域"]
-layout_mode = 0
-offset_left = 3.0
-offset_top = 3.0
-offset_right = 227.0
-offset_bottom = 70.0
-text = "1231231"
-label_settings = SubResource("LabelSettings_tp1wc")
-
-[node name="文本区域" type="Panel" parent="."]
-layout_mode = 0
-offset_left = 313.0
-offset_top = 452.0
-offset_right = 1152.0
-offset_bottom = 646.0
-
-[node name="文本内容" type="Label" parent="文本区域"]
+[node name="名字" type="Label" parent="CanvasLayer/名字区域"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+text = "1231231"
+label_settings = SubResource("LabelSettings_tp1wc")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="文本区域" type="Panel" parent="CanvasLayer"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1320.0
+offset_top = -290.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("1_e8smu")
+metadata/_edit_group_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/文本区域"]
+layout_mode = 0
+offset_right = 1321.0
+offset_bottom = 285.0
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 40
+
+[node name="文本内容" type="Label" parent="CanvasLayer/文本区域/MarginContainer"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+size_flags_vertical = 1
+theme = ExtResource("1_e8smu")
 text = "123123123123123
 123
 312312
@@ -68,5 +85,3 @@ text = "123123123123123
 label_settings = SubResource("LabelSettings_tp1wc")
 autowrap_mode = 2
 max_lines_visible = 4
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
