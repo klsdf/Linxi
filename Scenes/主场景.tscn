@@ -1,11 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://ds8smya0j3n4n"]
+[gd_scene load_steps=8 format=3 uid="uid://ds8smya0j3n4n"]
 
 [ext_resource type="Script" uid="uid://dxuewb11hubri" path="res://Scripts/main.gd" id="1_xv2tf"]
 [ext_resource type="PackedScene" uid="uid://cy2inkhq6mfm8" path="res://Scenes/对话系统.tscn" id="2_axcol"]
 [ext_resource type="Texture2D" uid="uid://c726iq4njwpfx" path="res://Sprites/d51ad328-620a-4502-9386-567502dc0e04_1744035475654914328_origin~tplv-a9rns2rl98-image-dark-watermark.png" id="2_hem2v"]
 [ext_resource type="Script" uid="uid://c1o8bn428c77t" path="res://Scripts/EnemyCreator.gd" id="3_axcol"]
 [ext_resource type="PackedScene" uid="uid://e25688oks48d" path="res://Scenes/玩家.tscn" id="3_xv2tf"]
-[ext_resource type="Script" uid="uid://q3qe81baw44n" path="res://Scripts/Player.gd" id="8_hem2v"]
 [ext_resource type="Script" uid="uid://dfpwpesw12opo" path="res://Scripts/timer.gd" id="9_hem2v"]
 [ext_resource type="Script" uid="uid://b0itr4pus80lc" path="res://Scripts/UIController.gd" id="10_axcol"]
 
@@ -27,7 +26,6 @@ script = ExtResource("9_hem2v")
 [node name="Player" parent="背景" instance=ExtResource("3_xv2tf")]
 position = Vector2(773, 245)
 scale = Vector2(1.00156, 0.984517)
-script = ExtResource("8_hem2v")
 speed = 100
 
 [node name="UIController" type="Node" parent="."]

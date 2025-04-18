@@ -6,9 +6,8 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bss38"]
 size = Vector2(151.5, 159.5)
 
-[node name="Enemy" type="Area2D" node_paths=PackedStringArray("player")]
+[node name="Enemy" type="Area2D"]
 script = ExtResource("1_wovta")
-player = NodePath("")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, 1)

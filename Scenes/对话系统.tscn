@@ -10,7 +10,7 @@ font_color = Color(0.562294, 0.837385, 0.966563, 1)
 outline_size = 3
 outline_color = Color(0.735464, 0, 0.293382, 1)
 
-[node name="对话系统" type="Control" node_paths=PackedStringArray("文本标签", "角色名字标签")]
+[node name="对话系统" type="Control" node_paths=PackedStringArray("textLabel", "characterNameLabel", "characterTachieArea")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -19,12 +19,13 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_e8smu")
 script = ExtResource("1_15w8b")
-"文本标签" = NodePath("CanvasLayer/文本区域/MarginContainer/文本内容")
-"角色名字标签" = NodePath("CanvasLayer/名字区域/名字")
+textLabel = NodePath("CanvasLayer/文本区域/MarginContainer/文本内容")
+characterNameLabel = NodePath("CanvasLayer/名字区域/名字")
+characterTachieArea = NodePath("CanvasLayer/角色立绘区域")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+[node name="角色立绘区域" type="TextureRect" parent="CanvasLayer"]
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
