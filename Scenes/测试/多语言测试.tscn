@@ -1,0 +1,47 @@
+[gd_scene load_steps=2 format=3 uid="uid://y1lxquame8xs"]
+
+[ext_resource type="Script" uid="uid://cok6py255h4pt" path="res://Scenes/测试/多语言测试.gd" id="1_jmh0x"]
+
+[node name="多语言测试" type="Control" node_paths=PackedStringArray("label")]
+auto_translate_mode = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jmh0x")
+label = NodePath("result")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 535.0
+offset_bottom = 290.0
+theme_override_font_sizes/font_size = 50
+text = "你好"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 297.0
+offset_right = 266.0
+offset_bottom = 428.0
+text = "转为英文"
+
+[node name="Button2" type="Button" parent="."]
+offset_left = 462.0
+offset_top = 268.0
+offset_right = 692.0
+offset_bottom = 399.0
+text = "转为中文"
+
+[node name="result" type="Label" parent="."]
+offset_left = 66.0
+offset_top = 573.0
+offset_right = 1268.0
+offset_bottom = 863.0
+theme_override_font_sizes/font_size = 50
+text = "接受的结果"
+
+[connection signal="button_down" from="Button" to="." method="_on_english_button_down"]
+[connection signal="button_down" from="Button2" to="." method="_on_chinese_button_down"]

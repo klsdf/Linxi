@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://dmpapqf2hadxt"]
+
+[node name="富文本测试" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_right = 1509.0
+offset_bottom = 253.0
+theme_override_constants/line_separation = 11
+bbcode_enabled = true
+text = "测试[wave]浮动[/wave]测试
+测试[wave amp=70]很大的浮动[/wave]测试
+测试[tornado]旋转特效[/tornado]测试
+测试[tornado radius=30]半径很大的旋转特效[/tornado]测试
+测试[tornado freq=5]很快的旋转特效[/tornado]测试
+测试[shake]抖动[/shake]测试
+测试[shake rate=30 level=20]更加激烈的抖动[/shake]测试"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+offset_left = 1.0
+offset_top = 348.0
+offset_right = 1513.0
+offset_bottom = 601.0
+theme_override_constants/line_separation = 6
+bbcode_enabled = true
+text = "测试[fade start=0 length=10]渐变测试测试测试测试测试[/fade]测试
+
+测试[rainbow freq=1]彩虹频率测试测试[/rainbow]测试
+测试[rainbow sat=0.3]低饱和度的彩虹[/rainbow]测试"
